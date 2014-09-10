@@ -20,8 +20,19 @@ namespace Lab1_Change
             try
             {
                 // Input från användaren
-                Console.Write("Ange totalsumma \t: ");
-                _subtotal = double.Parse(Console.ReadLine());   // Acceptera max två decimaler
+                
+                do
+                {
+                    Console.Write("Ange totalsumma \t: ");
+                    _subtotal = double.Parse(Console.ReadLine());   // Acceptera max två decimaler
+                    Console.Write("\n");
+
+                    if(_subtotal < 1)
+                    {
+                        throw new OverflowException();  // Loopen bryts av Exception - FIXA
+                    }
+                } while (_subtotal < 1);
+
                 Console.Write("Ange erhållet belopp \t: ");
                 _total = uint.Parse(Console.ReadLine());
 
@@ -35,7 +46,7 @@ namespace Lab1_Change
 
                 // Skriv ut kvittens
 
-                Console.WriteLine("\nKVITTO\n---------------------------------------");
+                Console.WriteLine("KVITTO\n---------------------------------------");
                 Console.WriteLine("Totalt \t\t\t: {0:c}", _subtotal);
                 Console.WriteLine("Öresavrundning \t\t: {0:c}", _roundingOffAmount);
                 Console.WriteLine("Att betala \t\t: {0:c0}", _amountToPay);
@@ -144,9 +155,9 @@ namespace Lab1_Change
                 Console.WriteLine("\n\n");
             }
 
-            catch
+            catch (OverflowException)
             {
-                Console.WriteLine("FEL");
+                Console.WriteLine("Du matade in ett för litet tal \n");
             }
 
             
