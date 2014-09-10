@@ -21,7 +21,7 @@ namespace Lab1_Change
 
             // Input från användaren
             Console.Write("Ange totalsumma \t: ");
-            _subtotal = double.Parse(Console.ReadLine());
+            _subtotal = double.Parse(Console.ReadLine());   // Acceptera max två decimaler
             Console.Write("Ange erhållet belopp \t: ");
             _total = uint.Parse(Console.ReadLine());
 
@@ -45,10 +45,24 @@ namespace Lab1_Change
 
             // Räkna ut sedlar tillbaka
 
+            uint _count;    // Ska hålla reda på summan
+            uint _currency; // Ska hålla reda på antal sedlar och mynt
+
+            if(_amountBack > 500)
+            {
+                _count = _amountBack % 500;
+                _currency = _amountBack / 500;
+
+                Console.WriteLine("AmountBack {0}", _amountBack);
+                Console.WriteLine("Count {0}", _count);
+                Console.WriteLine("Currency {0}", _currency);
+            }
+     
+            
 
             // Skriv ut sedlar tillbaka
 
-
+            
             // Felmeddelanden        
         }
     }
