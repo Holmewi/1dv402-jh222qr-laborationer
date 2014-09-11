@@ -9,3 +9,4 @@ P:\www\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\obj\Debug\Lab1-Change
 P:\www\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\obj\Debug\Lab1-Change.pdb
 P:\www\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\bin\Debug\Lab1-Change.exe
 P:\www\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\bin\Debug\Lab1-Change.pdb
+P:\www\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\obj\Debug\Lab1-Change.csprojResolveAssemblyReference.cache

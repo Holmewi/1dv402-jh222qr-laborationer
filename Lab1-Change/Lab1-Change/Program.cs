@@ -120,14 +120,15 @@ namespace Lab1_Change
                 _amountBack = _total - _amountToPay;
 
                 // Skriv ut kvittens
+                // Hittade formateringen på stings på källan http://www.csharp-examples.net/align-string-with-spaces/
 
-                Console.WriteLine("KVITTO\n---------------------------------------");
-                Console.WriteLine("Totalt \t\t\t: {0:c}", _subtotal);
-                Console.WriteLine("Öresavrundning \t\t: {0:c}", _roundingOffAmount);
-                Console.WriteLine("Att betala \t\t: {0:c0}", _amountToPay);
-                Console.WriteLine("Kontant \t\t: {0:c0}", _total);
-                Console.WriteLine("Tillbaka \t\t: {0:c0}:", _amountBack);
-                Console.WriteLine("---------------------------------------\n");
+                Console.WriteLine("\nKVITTO\n-----------------------------------");
+                Console.WriteLine(String.Format("{0,-18} {1} {2,14:c}", "Totalt", ":", _subtotal));
+                Console.WriteLine(String.Format("{0,-18} {1} {2,14:c}", "Öresavrundning", ":", _roundingOffAmount));
+                Console.WriteLine(String.Format("{0,-18} {1} {2,14:c0}", "Att betala", ":", _amountToPay));
+                Console.WriteLine(String.Format("{0,-18} {1} {2,14:c0}", "Kontant", ":", _total));
+                Console.WriteLine(String.Format("{0,-18} {1} {2,14:c0}", "Tillbaka", ":", _amountBack));
+                Console.WriteLine("-----------------------------------\n");
 
                 // Kalkylera och skriv ut sedlar tillbaka
 
@@ -143,7 +144,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("500-lappar \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 500-lappar", ":", _currency));
 
                         _amountBack = _count;   // Finns det något annat sätt att göra detta på?
                     }
@@ -155,7 +156,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("100-lappar \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 100-lappar", ":", _currency));
 
                         _amountBack = _count;
                     }
@@ -167,7 +168,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("50-lappar \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 50-lappar", ":", _currency));
 
                         _amountBack = _count;
                     }
@@ -179,7 +180,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("20-lappar \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 20-lappar", ":", _currency));
 
                         _amountBack = _count;
                     }
@@ -191,7 +192,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("10-kronor \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 10-kronor", ":", _currency));
 
                         _amountBack = _count;
                     }
@@ -203,7 +204,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("5-kronor \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 5-kronor", ":", _currency));
 
                         _amountBack = _count;
                     }
@@ -215,7 +216,7 @@ namespace Lab1_Change
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
                         //Console.WriteLine("Count {0}", _count);
-                        Console.WriteLine("1-kronor \t: {0}", _currency);
+                        Console.WriteLine(String.Format("{0,-18} {1} {2}", " 1-kronor", ":", _currency));
 
                         _amountBack = _count;
                     }
@@ -228,15 +229,7 @@ namespace Lab1_Change
 
 
                 Console.WriteLine("\n\n");
-         
-            
-            
-
-            
-            
-            // Felmeddelanden
-
-           
+ 
         }
     }
 }
