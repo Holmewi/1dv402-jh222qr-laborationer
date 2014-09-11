@@ -11,30 +11,105 @@ namespace Lab1_Change
         static void Main(string[] args)
         {
             // Deklarera variabler
-            double _subtotal;
-            uint _total;
+            double _subtotal = 0d;
+            uint _total = 0;
             double _roundingOffAmount;
             uint _amountToPay;
             uint _amountBack;
+            bool _error = true;
 
-            try
-            {
+
+            
                 // Input från användaren
-                
+
                 do
                 {
-                    Console.Write("Ange totalsumma \t: ");
-                    _subtotal = double.Parse(Console.ReadLine());   // Acceptera max två decimaler
-                    Console.Write("\n");
-
-                    if(_subtotal < 1)
+                    try
                     {
-                        throw new OverflowException();  // Loopen bryts av Exception - FIXA
-                    }
-                } while (_subtotal < 1);
+                        Console.Write("Ange totalsumma \t: ");
+                        _subtotal = double.Parse(Console.ReadLine());   // Acceptera max två decimaler
+                        _error = false;
 
-                Console.Write("Ange erhållet belopp \t: ");
-                _total = uint.Parse(Console.ReadLine());
+                        if (_subtotal < 1)
+                        {
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("\n Du skrev in ett för litet tal, var god försök igen.\n");
+                            Console.ResetColor();
+                            _error = true;
+                        }
+                    }
+
+                    catch (OverflowException)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Du matade in ett för stort tal \n");
+                        Console.ResetColor();
+                    }
+                    catch (InvalidCastException)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n fel \n");
+                    }
+                    catch (FormatException)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Du matade in ett felaktigt tal, var god försök igen. \n");
+                        Console.ResetColor();
+                    }
+                } while (_error);
+                    
+
+
+         
+                do
+                {
+	                try
+	                {
+                        _error = true;
+	                    Console.Write("Ange erhållet belopp \t: ");
+	                    _total = uint.Parse(Console.ReadLine());
+                        _error = false;
+                        if (_total < _subtotal)
+			                {
+                                Console.BackgroundColor = ConsoleColor.Red;
+                                Console.ForegroundColor = ConsoleColor.White;
+                                Console.WriteLine("\n Erhållet belopp är för litet. Köpet kunde inte genomföras.\n");
+                                Console.ResetColor();
+                                _error = true;
+			                }
+                    }
+                    catch (OverflowException)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Du matade in ett för stort tal \n");
+                        Console.ResetColor();
+                    }
+                    catch (InvalidCastException)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n fel \n");
+                    }
+                    catch (FormatException)
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Du matade in ett felaktigt tal \n");
+                        Console.ResetColor();
+                    }
+
+                } while (_error);
+
+
+
+
+
+
 
 
                 // Räkna ut öresavrundning
@@ -153,12 +228,9 @@ namespace Lab1_Change
 
 
                 Console.WriteLine("\n\n");
-            }
-
-            catch (OverflowException)
-            {
-                Console.WriteLine("Du matade in ett för litet tal \n");
-            }
+         
+            
+            
 
             
             
