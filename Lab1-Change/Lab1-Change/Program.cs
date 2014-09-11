@@ -34,7 +34,7 @@ namespace Lab1_Change
                         {
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("\n Du skrev in ett för litet tal, var god försök igen.\n");
+                            Console.WriteLine("\n FEL! {0} är ett för litet tal, var god försök igen \n", _subtotal);
                             Console.ResetColor();
                             _error = true;
                         }
@@ -44,21 +44,21 @@ namespace Lab1_Change
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n Du matade in ett för stort tal \n");
+                        Console.WriteLine("\n FEL! Du matade in ett för stort tal, var god försök igen \n");
                         Console.ResetColor();
-                    }
-                    catch (InvalidCastException)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n fel \n");
                     }
                     catch (FormatException)
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n Du matade in ett felaktigt tal, var god försök igen. \n");
+                        Console.WriteLine("\n FEL! Du matade in ett felaktigt tal, var god försök igen \n");
                         Console.ResetColor();
+                    }
+                    catch
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Något allvarligt fel inträffade \n");
                     }
                 } while (_error);
                     
@@ -77,7 +77,7 @@ namespace Lab1_Change
 			                {
                                 Console.BackgroundColor = ConsoleColor.Red;
                                 Console.ForegroundColor = ConsoleColor.White;
-                                Console.WriteLine("\n Erhållet belopp är för litet. Köpet kunde inte genomföras.\n");
+                                Console.WriteLine("\n FEL! Erhållet belopp {0:c0} är för litet. Köpet kunde inte genomföras \n", _total);
                                 Console.ResetColor();
                                 _error = true;
 			                }
@@ -86,30 +86,24 @@ namespace Lab1_Change
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n Du matade in ett för stort tal \n");
+                        Console.WriteLine("\n FEL! Du matade in ett för stort tal, var god försök igen \n");
                         Console.ResetColor();
-                    }
-                    catch (InvalidCastException)
-                    {
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n fel \n");
                     }
                     catch (FormatException)
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n Du matade in ett felaktigt tal \n");
+                        Console.WriteLine("\n FEL! Du matade in ett felaktigt tal, var god försök igen \n");
                         Console.ResetColor();
+                    }
+                    catch
+                    {
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Något allvarligt fel inträffade \n");
                     }
 
                 } while (_error);
-
-
-
-
-
-
 
 
                 // Räkna ut öresavrundning
@@ -120,7 +114,7 @@ namespace Lab1_Change
                 _amountBack = _total - _amountToPay;
 
                 // Skriv ut kvittens
-                // Hittade formateringen på stings på källan http://www.csharp-examples.net/align-string-with-spaces/
+                // Källa till formateringen på stings http://www.csharp-examples.net/align-string-with-spaces/
 
                 Console.WriteLine("\nKVITTO\n-----------------------------------");
                 Console.WriteLine(String.Format("{0,-18} {1} {2,14:c}", "Totalt", ":", _subtotal));
