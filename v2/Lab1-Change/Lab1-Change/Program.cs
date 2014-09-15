@@ -126,71 +126,93 @@ namespace Lab1_Change
 
                 // Kalkylera och skriv ut sedlar tillbaka
 
+                uint _count = 0;    // Ska hålla reda på summan
                 uint _currency = 0; // Ska hålla reda på antal sedlar och mynt
 
                 if (_amountBack >= 1)
                 {
                     if (_amountBack >= 500)
                     {
+                        _count = _amountBack % 500;
                         _currency = _amountBack / 500;
-                        _amountBack %= 500;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 500-lappar", ":", _currency));
+
+                        _amountBack = _count;   // Finns det något annat sätt att göra detta på?
                     }
 
                     if (_amountBack >= 100)
                     {
+                        _count = _amountBack % 100;
                         _currency = _amountBack / 100;
-                        _amountBack %= 100;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 100-lappar", ":", _currency));
+
+                        _amountBack = _count;
                     }
 
                     if (_amountBack >= 50)
                     {
+                        _count = _amountBack % 50;
                         _currency = _amountBack / 50;
-                        _amountBack %= 50;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 50-lappar", ":", _currency));
+
+                        _amountBack = _count;
                     }
 
                     if (_amountBack >= 20)
                     {
+                        _count = _amountBack % 20;
                         _currency = _amountBack / 20;
-                        _amountBack %= 20;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 20-lappar", ":", _currency));
+
+                        _amountBack = _count;
                     }
 
                     if (_amountBack >= 10)
                     {
+                        _count = _amountBack % 10;
                         _currency = _amountBack / 10;
-                        _amountBack %= 10;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 10-kronor", ":", _currency));
+
+                        _amountBack = _count;
                     }
 
                     if (_amountBack >= 5)
                     {
+                        _count = _amountBack % 5;
                         _currency = _amountBack / 5;
-                        _amountBack %= 5;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 5-kronor", ":", _currency));
+
+                        _amountBack = _count;
                     }
 
                     if (_amountBack >= 1)
-                    { 
+                    {
+                        _count = _amountBack % 1;
                         _currency = _amountBack / 1;
-                        _amountBack %= 1;
 
                         //Console.WriteLine("AmountBack {0}", _amountBack);
+                        //Console.WriteLine("Count {0}", _count);
                         Console.WriteLine(String.Format("{0,-18} {1} {2}", " 1-kronor", ":", _currency));
+
+                        _amountBack = _count;
                     }
                 }
 

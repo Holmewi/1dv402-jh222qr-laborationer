@@ -1,0 +1,6 @@
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\bin\Debug\Lab1-Change.exe.config
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\bin\Debug\Lab1-Change.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\bin\Debug\Lab1-Change.pdb
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\obj\Debug\Lab1-Change.csprojResolveAssemblyReference.cache
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\obj\Debug\Lab1-Change.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-Change\Lab1-Change\obj\Debug\Lab1-Change.pdb
