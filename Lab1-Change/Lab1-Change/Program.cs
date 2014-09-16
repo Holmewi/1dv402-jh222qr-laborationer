@@ -15,7 +15,7 @@ namespace Lab1_Change
             string _subtotalInfo = "Ange totalsumma \t: ";
             string _totalInfo = "Ange erhållet belopp \t: ";
 
-            //Hämta värden från vardin separat metod
+            //Hämta värden från varsin separat metod
             double _subtotal = ReadPostiveDouble(_subtotalInfo);
             uint _total = ReadUint(_totalInfo, _subtotal);
 
@@ -51,20 +51,21 @@ namespace Lab1_Change
                 {
                     try
                     {
-                        double input;
+                        double _input;
                         Console.Write(prompt);
-                        input = double.Parse(Console.ReadLine());   // Acceptera max två decimaler?
-                        //ERROR = false;
+                        _input = double.Parse(Console.ReadLine());   // Acceptera max två decimaler?
 
-                        if (input < 1)
+                        if (_input < 1)
                         {
                             Console.BackgroundColor = ConsoleColor.Red;
                             Console.ForegroundColor = ConsoleColor.White;
-                            Console.WriteLine("\n FEL! {0} är ett för litet tal, var god försök igen \n", input);
+                            Console.WriteLine("\n FEL! {0} är ett för litet tal, var god försök igen \n", _input);
                             Console.ResetColor();
-                            //ERROR = true;
                         }
-                        return input;
+                        else if(_input >= 1)
+                        {
+                            return _input;
+                        }  
                     }
 
                     catch (OverflowException)
@@ -97,18 +98,30 @@ namespace Lab1_Change
             {
                 try
                 {
-                    uint input;
+                    uint _input;
                     Console.Write(prompt);
-                    input = uint.Parse(Console.ReadLine());
+                    _input = uint.Parse(Console.ReadLine());
 
-                    if (input < SUBTOTAL)
+                    if (_input < SUBTOTAL)
                     {
                         Console.BackgroundColor = ConsoleColor.Red;
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n FEL! Erhållet belopp {0:c0} är för litet. Köpet kunde inte genomföras \n", input);
+                        Console.WriteLine("\n FEL! Erhållet belopp {0:c0} är för litet. Köpet kunde inte genomföras \n", _input);
                         Console.ResetColor();
                     }
-                    return input;
+                    if (_input == SUBTOTAL)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n Personen betalade jämna pengar! ");
+                        Console.ResetColor();
+                        return _input;
+                    }
+
+                    else if (_input >= SUBTOTAL)
+                    {
+                        return _input;
+                    }  
                     
                 }
                 catch (OverflowException)
@@ -136,78 +149,34 @@ namespace Lab1_Change
         }
 
 
-        // Kalkylera och skriv ut sedlar tillbaka
+        // Kalkylera och skriv ut sedlar och mynt tillbaka
         static void SplitIntoDenomiations(double SUBTOTAL, uint TOTAL, uint AMOUNTBACK)
         {
 
-            uint _currency = 0; // Ska hålla reda på antal sedlar och mynt
+            uint _currencyCount = 0; // Ska hålla reda på antal sedlar och mynt
 
-            if (TOTAL == SUBTOTAL)
+            string[] _textLine = new string[7];
+            _textLine[0] = " 500-lappar";
+            _textLine[1] = " 100-lappar";
+            _textLine[2] = " 50-lappar";
+            _textLine[3] = " 20-lappar";
+            _textLine[4] = " 10-kronor";
+            _textLine[5] = " 5-kronor";
+            _textLine[6] = " 1-kronor";
+
+            uint[] _currency = new uint[] { 500, 100, 50, 20, 10, 5, 1 };
+
+            int i;
+            for (i = 0; i < _currency.Length; i++)
             {
-                Console.WriteLine("Personen betalade jämna pengar!");
-            }
+                if (AMOUNTBACK >= _currency[i])
+                {
+                    _currencyCount = AMOUNTBACK / _currency[i];
+                    AMOUNTBACK %= _currency[i];
 
-            if (AMOUNTBACK >= 500)
-            {
-                _currency = AMOUNTBACK / 500;
-                AMOUNTBACK %= 500;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 500-lappar", ":", _currency));
-            }
-
-            if (AMOUNTBACK >= 100)
-            {
-                _currency = AMOUNTBACK / 100;
-                AMOUNTBACK %= 100;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 100-lappar", ":", _currency));
-            }
-
-            if (AMOUNTBACK >= 50)
-            {
-                _currency = AMOUNTBACK / 50;
-                AMOUNTBACK %= 50;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 50-lappar", ":", _currency));
-            }
-
-            if (AMOUNTBACK >= 20)
-            {
-                _currency = AMOUNTBACK / 20;
-                AMOUNTBACK %= 20;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 20-lappar", ":", _currency));
-            }
-
-            if (AMOUNTBACK >= 10)
-            {
-                _currency = AMOUNTBACK / 10;
-                AMOUNTBACK %= 10;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 10-kronor", ":", _currency));
-            }
-
-            if (AMOUNTBACK >= 5)
-            {
-                _currency = AMOUNTBACK / 5;
-                AMOUNTBACK %= 5;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 5-kronor", ":", _currency));
-            }
-
-            if (AMOUNTBACK >= 1)
-            {
-                _currency = AMOUNTBACK / 1;
-                AMOUNTBACK %= 1;
-
-                //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
-                Console.WriteLine(String.Format("{0,-18} {1} {2}", " 1-kronor", ":", _currency));
+                    //Console.WriteLine("AmountBack {0}", AMOUNTBACK);
+                    Console.WriteLine(String.Format("{0,11} {1,8} {2}", _textLine[i], ":", _currencyCount)); 
+                }
             }
 
             Console.WriteLine("\n\n");
