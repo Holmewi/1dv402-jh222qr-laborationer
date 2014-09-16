@@ -14,12 +14,24 @@ namespace DrawAsterisks
 
 
             // Satser
-            Console.Write(" ");
-            Console.Write("* ");
-            Console.WriteLine();
+            // Console.Write(" ");
+            // Console.Write("* ");
+            // Console.WriteLine();
 
             // Skapa nästlade for-loopar med asterisker innhållande 39 kolumner och 25 rader
 
+            for (int col = 0; col < 25; col++ )
+            { 
+                for (int i = 0; i < 39; i++)
+                {
+                    Console.Write("* ");
+                    for (int j = 0; j < 0; j++)
+                    {
+                        Console.Write(" ");
+                    }
+                }
+                Console.WriteLine("");
+            }
 
             // Skjut in varannan rad med hjälp av en if-sats och modulusoperator
 
