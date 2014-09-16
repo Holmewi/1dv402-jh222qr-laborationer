@@ -1,6 +1,0 @@
-C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-2-DrawAsterisks\DrawAsterisks\DrawAsterisks\bin\Debug\DrawAsterisks.exe.config
-C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-2-DrawAsterisks\DrawAsterisks\DrawAsterisks\bin\Debug\DrawAsterisks.exe
-C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-2-DrawAsterisks\DrawAsterisks\DrawAsterisks\bin\Debug\DrawAsterisks.pdb
-C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-2-DrawAsterisks\DrawAsterisks\DrawAsterisks\obj\Debug\DrawAsterisks.csprojResolveAssemblyReference.cache
-C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-2-DrawAsterisks\DrawAsterisks\DrawAsterisks\obj\Debug\DrawAsterisks.exe
-C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-2-DrawAsterisks\DrawAsterisks\DrawAsterisks\obj\Debug\DrawAsterisks.pdb

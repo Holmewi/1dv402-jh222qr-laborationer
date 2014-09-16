@@ -11,7 +11,7 @@ namespace DrawAsterisks
         static void Main(string[] args)
         {
             // Deklarera variabler
-            
+
 
             // Satser
             Console.Write(" ");
