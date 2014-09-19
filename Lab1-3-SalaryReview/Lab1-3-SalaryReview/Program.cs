@@ -30,7 +30,9 @@ namespace Lab1_3_SalaryReview
             }
 
             Console.WriteLine("\n-----------------------------------");
-            MediumSalary(_salary, _salaryCount, row);
+            MediumSalary(_salary, _salaryCount);
+            AvarageSalary(_salary);
+            SalaryDistribution(_salary);
             Console.WriteLine("-----------------------------------\n");
             
             for (row = 0; row < _salaryCount; row++ )
@@ -47,34 +49,36 @@ namespace Lab1_3_SalaryReview
          * det första jag hittade en liknande lösning.
          * Källa: http://stackoverflow.com/questions/5275115/add-a-median-method-to-a-list
          */
-        static void MediumSalary(int[] _salary, int _salaryCount, int row)
+        static void MediumSalary(int[] _salary, int _salaryCount)
         {
             Array.Sort(_salary);
-            int _count = _salary.Length;           
-           
-            if (_count % 2 == 0)
+
+            if (_salaryCount % 2 == 0)
             {
-                int a = _salary[_count / 2 - 1];
-                int b = _salary[_count / 2];
-                Console.WriteLine("Medianlön: {0}", (a + b) / 2);
+                int a = _salary[_salaryCount / 2 - 1];
+                int b = _salary[_salaryCount / 2];
+                Console.WriteLine("Medianlön: {0:c0}", (a + b) / 2);
             }
             else
             {
-                Console.WriteLine("Medianlön: {0}", _salary[_count / 2]);
+                Console.WriteLine("Medianlön: {0:c0}", _salary[_salaryCount / 2]);
             }
         }
 
         // Räkna ut medellön - Addera lönerna och dividera med antalet inmatade löner
-        static void AvarageSalary()
+        static void AvarageSalary(int[] _salary)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Medellön: {0:c0}", _salary.Average());
         }
 
         // Räkna ut lönespridning - Subrahera den högsta lönen med den lägsta
-        static void SalaryDistribution()
+        static void SalaryDistribution(int[] _salary)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Lönespridning: {0:c0}", _salary.Max() - _salary.Min());
         }
+
+        // Skapa en lista med max tre columner
+
 
         // Skapa en felhantering med try-catch-satser
 
