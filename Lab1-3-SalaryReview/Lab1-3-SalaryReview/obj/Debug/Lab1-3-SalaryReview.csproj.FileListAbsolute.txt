@@ -1,1 +1,6 @@
 C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-3-SalaryReview\Lab1-3-SalaryReview\bin\Debug\Lab1-3-SalaryReview.exe.config
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-3-SalaryReview\Lab1-3-SalaryReview\obj\Debug\Lab1-3-SalaryReview.csprojResolveAssemblyReference.cache
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-3-SalaryReview\Lab1-3-SalaryReview\bin\Debug\Lab1-3-SalaryReview.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-3-SalaryReview\Lab1-3-SalaryReview\bin\Debug\Lab1-3-SalaryReview.pdb
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-3-SalaryReview\Lab1-3-SalaryReview\obj\Debug\Lab1-3-SalaryReview.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab1-3-SalaryReview\Lab1-3-SalaryReview\obj\Debug\Lab1-3-SalaryReview.pdb
