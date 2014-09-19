@@ -12,7 +12,7 @@ namespace Lab1_3_SalaryReview
         {
             // Deklarera variabler
             int _salaryCount;
-            int _salary = 0;
+            int row;
 
             // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
             Console.Write("Ange antal löner att mata in: ");
@@ -20,12 +20,24 @@ namespace Lab1_3_SalaryReview
 
 
             // Mata in löner och spara dessa i en array av typen int - skriv ut meddelande och värdet
-
-            for (int row = 1; row <= _salaryCount; row++)
+            // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
+            int[] _salary = new int[_salaryCount];
+ 
+            for (row = 0; row < _salaryCount; row++)
             {
-                Console.Write("Ange lön nummer {0}: ", row);
-                _salary = int.Parse(Console.ReadLine());
+                Console.Write("Ange lön nummer {0}: ", row+1);
+                _salary[row] = int.Parse(Console.ReadLine());
             }
+
+
+            
+            for (row = 0; row < _salaryCount; row++ )
+            {
+                Console.WriteLine(_salary[row]);
+            }
+
+
+
 
 
             
@@ -45,6 +57,7 @@ namespace Lab1_3_SalaryReview
 
 
         }
+
 
 
     }
