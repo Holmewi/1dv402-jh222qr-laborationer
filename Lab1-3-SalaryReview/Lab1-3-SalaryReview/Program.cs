@@ -13,8 +13,9 @@ namespace Lab1_3_SalaryReview
             // Deklarera variabler
             int row = 0;
             string _prompt = "Ange antal löner att mata in: ";
-
+            
             int _salaryCount = ReadInt(_prompt);
+            Console.WriteLine("");
 
             ProcessSalaries(row, _salaryCount);
         }
@@ -59,25 +60,21 @@ namespace Lab1_3_SalaryReview
             MediumSalary(_salary, _salaryCount);
             AvarageSalary(_salary);
             SalaryDistribution(_salary);
-            Console.WriteLine("-----------------------------------\n");
+            Console.WriteLine("-----------------------------------");
 
 
             // Skapa en lista med max tre columner
 
-            foreach (int value in _target)
+   
+            for (int i = 0; i < _target.Length; i++)
             {
-                for (int col = 0; col < _salaryCount; col++)
+                if (i % 3 == 0)
                 {
-                    if (col % 3 == 0)
-                    {
-                        Console.WriteLine("");
-                    }
-                    Console.Write("{0,-6} ",value);
-                }      
+                    Console.WriteLine("");
+                }
+                System.Console.Write("{0,8}", _target[i]);
             }
-
-          
-            
+            Console.WriteLine("\n\n");
 
         }
 
@@ -97,24 +94,24 @@ namespace Lab1_3_SalaryReview
             {
                 int a = _salary[_salaryCount / 2 - 1];
                 int b = _salary[_salaryCount / 2];
-                Console.WriteLine("Medianlön: {0:c0}", (a + b) / 2);
+                Console.WriteLine("{0} {1,14:c0}", "Medianlön:", (a + b) / 2);
             }
             else
             {
-                Console.WriteLine("Medianlön: {0:c0}", _salary[_salaryCount / 2]);
+                Console.WriteLine("{0} {1,14:c0}", "Medianlön:", _salary[_salaryCount / 2]);
             }
         }
 
         // Räkna ut medellön - Addera lönerna och dividera med antalet inmatade löner
         static void AvarageSalary(int[] _salary)
         {
-            Console.WriteLine("Medellön: {0:c0}", _salary.Average());
+            Console.WriteLine("{0} {1,15:c0}", "Medellön:", _salary.Average());
         }
 
         // Räkna ut lönespridning - Subrahera den högsta lönen med den lägsta
         static void SalaryDistribution(int[] _salary)
         {
-            Console.WriteLine("Lönespridning: {0:c0}", _salary.Max() - _salary.Min());
+            Console.WriteLine("{0} {1,10:c0}", "Lönespridning:", _salary.Max() - _salary.Min());
         }
 
         
