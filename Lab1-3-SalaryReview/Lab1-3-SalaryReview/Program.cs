@@ -13,11 +13,12 @@ namespace Lab1_3_SalaryReview
             // Deklarera variabler
             int row = 0;
             string _prompt = "Ange antal löner att mata in: ";
+            string _promtSalary = "Ange lön nummer {0}: ";
             
             int _salaryCount = ReadInt(_prompt);
             Console.WriteLine("");
 
-            ProcessSalaries(row, _salaryCount);
+            ProcessSalaries(row, _salaryCount, _promtSalary);
         }
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
@@ -31,7 +32,7 @@ namespace Lab1_3_SalaryReview
                  * som string till catch-satsen FormatException. Känns som att det borde finnas
                  * mer logiska sätt att lösa det på.
                  * Källa: http://stackoverflow.com/questions/12550184/throw-a-format-exception-c-sharp
-                 */
+                 */ 
                 Console.Write(_prompt);
                 string line = Console.ReadLine();
                 int _salaryCount;
@@ -52,7 +53,7 @@ namespace Lab1_3_SalaryReview
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Out.WriteLine(" FEL! Du matade in ett för stort tal! "); 
+                    Console.Out.WriteLine("\n FEL! Du matade in ett för stort tal! \n"); 
                     Console.ResetColor();
                 }
 
@@ -60,14 +61,14 @@ namespace Lab1_3_SalaryReview
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Out.WriteLine(" FEL! '{0}' kan inte tolkas som ett heltal! ", line);
+                    Console.Out.WriteLine("\n FEL! '{0}' kan inte tolkas som ett heltal! \n", line);
                     Console.ResetColor();
                 }
                 catch (Exception)
                 {
                     Console.BackgroundColor = ConsoleColor.Red;
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine(" FEL! Du måste mata in minst två löner för att kunna göra en beräkning! ");
+                    Console.WriteLine("\n FEL! Du måste mata in minst två löner för att kunna göra en beräkning! \n");
                     Console.ResetColor();
                 }
 
@@ -78,21 +79,50 @@ namespace Lab1_3_SalaryReview
 
         // Mata in löner och spara dessa i en array av typen int - skriv uts meddelande och värdet
         // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
-        static void ProcessSalaries(int row, int _salaryCount)
+        static void ProcessSalaries(int row, int _salaryCount, string _promtSalary)
         {
             int[] _salary = new int[_salaryCount];
-            
 
-            for (row = 0; row < _salaryCount; row++)
+            do
             {
-                Console.Write("Ange lön nummer {0}: ", row + 1);
-                _salary[row] = int.Parse(Console.ReadLine());
-            }
+                try  // Hur gör man för att slippa börja från start i arrayen efter att ett exception har kastats?
+                {
+                    for (row = 0; row < _salaryCount; row++)
+                    {
+                        Console.Write(_promtSalary, row + 1);
+                        _salary[row] = int.Parse(Console.ReadLine());
+                    }
+                    
+                }
+                catch (OverflowException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Out.WriteLine("\n FEL! Du matade in ett för stort tal! \n");
+                    Console.ResetColor();
+                }
+
+                catch (System.FormatException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Out.WriteLine("\n FEL! Fan inte tolkas som ett heltal! \n");
+                    Console.ResetColor();
+                }
+                catch
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("\n FEL! Ett allvarligt fel inträffade! \n");
+                    Console.ResetColor();
+                }
+
+            } while (row < _salaryCount);
 
             // Kopierade arrayen för att kunna lista den i ursprunglig ordning efter att den sorterats
             int[] _target = new int[_salaryCount];
             Array.Copy(_salary, _target, _salaryCount);
-            
+
 
             Console.WriteLine("\n-----------------------------------");
             MediumSalary(_salary, _salaryCount);
@@ -112,7 +142,6 @@ namespace Lab1_3_SalaryReview
                 System.Console.Write("{0,8}", _target[i]);
             }
             Console.WriteLine("\n\n");
-
         }
 
         // Räkna ut medianlön - Sortera arrayen och plocka ut medianlönen
