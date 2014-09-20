@@ -21,24 +21,62 @@ namespace Lab1_3_SalaryReview
         }
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
-        static int ReadInt(string _prompt)
+        static int ReadInt(string _prompt) 
         {
-            int _salaryCount;
-            Console.Write(_prompt);
-            _salaryCount = int.Parse(Console.ReadLine());
-            if (_salaryCount < 2)
+            while (true)
             {
-                throw new Exception();
-            }
-            else
-            {
-                return _salaryCount;
-            }
+
+                /* 
+                 * Efter väldigt mycket läsande, fann jag en lösning till att få med sig värdet 
+                 * som string till catch-satsen FormatException. Känns som att det borde finnas
+                 * mer logiska sätt att lösa det på.
+                 * Källa: http://stackoverflow.com/questions/12550184/throw-a-format-exception-c-sharp
+                 */
+                Console.Write(_prompt);
+                string line = Console.ReadLine();
+                int _salaryCount;
+
+                try
+                {
+                    _salaryCount = Int32.Parse(line);
+
+                    if (_salaryCount < 2)
+                    {
+                        throw new Exception();
+                    }
+
+                    return _salaryCount;
+                }
+
+                catch (OverflowException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Out.WriteLine(" FEL! Du matade in ett för stort tal! "); 
+                    Console.ResetColor();
+                }
+
+                catch (System.FormatException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.Out.WriteLine(" FEL! '{0}' kan inte tolkas som ett heltal! ", line);
+                    Console.ResetColor();
+                }
+                catch (Exception)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine(" FEL! Du måste mata in minst två löner för att kunna göra en beräkning! ");
+                    Console.ResetColor();
+                }
+
+            } 
             
         }
 
 
-        // Mata in löner och spara dessa i en array av typen int - skriv ut meddelande och värdet
+        // Mata in löner och spara dessa i en array av typen int - skriv uts meddelande och värdet
         // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
         static void ProcessSalaries(int row, int _salaryCount)
         {
@@ -65,7 +103,6 @@ namespace Lab1_3_SalaryReview
 
             // Skapa en lista med max tre columner
 
-   
             for (int i = 0; i < _target.Length; i++)
             {
                 if (i % 3 == 0)
