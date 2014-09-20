@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Lab1_3_SalaryReview
 {
     class Program
@@ -14,11 +15,13 @@ namespace Lab1_3_SalaryReview
             int row = 0;
             string _prompt = "Ange antal löner att mata in: ";
             string _promtSalary = "Ange lön nummer {0}: ";
-            
+
             int _salaryCount = ReadInt(_prompt);
             Console.WriteLine("");
 
             ProcessSalaries(row, _salaryCount, _promtSalary);
+
+            KeyInput(args);
         }
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
@@ -180,14 +183,26 @@ namespace Lab1_3_SalaryReview
             Console.WriteLine("{0} {1,10:c0}", "Lönespridning:", _salary.Max() - _salary.Min());
         }
 
-        
-        
-
-        // Skapa en felhantering med try-catch-satser
-
 
         // Skapa hantering av key input där escape avslutar programmet medan andra tangenter startar om applikationen
+        static void KeyInput(string[] args)  // Källa http://www.codeproject.com/Questions/271195/Is-it-possible-to-refresh-the-console-application
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Tryck tangent för ny beräkning - Esc avslutar. ");
+            Console.ResetColor();
 
+
+            if (Console.ReadKey(true).Key != ConsoleKey.Escape)
+            {
+                Console.Clear();  // Källa: http://stackoverflow.com/questions/6238232/how-to-clear-the-entire-console-window
+                Main(args);
+            }
+            else
+            {
+                Environment.Exit(0);  // Källa: http://stackoverflow.com/questions/5682408/command-to-close-an-application-of-console
+            }
+        }
 
     }
 }
