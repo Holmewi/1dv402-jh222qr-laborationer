@@ -11,34 +11,73 @@ namespace Lab1_3_SalaryReview
         static void Main(string[] args)
         {
             // Deklarera variabler
+            int row = 0;
+            string _prompt = "Ange antal löner att mata in: ";
+
+            int _salaryCount = ReadInt(_prompt);
+
+            ProcessSalaries(row, _salaryCount);
+        }
+
+        // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
+        static int ReadInt(string _prompt)
+        {
             int _salaryCount;
-            int row;
-
-            // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
-            Console.Write("Ange antal löner att mata in: ");
+            Console.Write(_prompt);
             _salaryCount = int.Parse(Console.ReadLine());
+            if (_salaryCount < 2)
+            {
+                throw new Exception();
+            }
+            else
+            {
+                return _salaryCount;
+            }
+            
+        }
 
 
-            // Mata in löner och spara dessa i en array av typen int - skriv ut meddelande och värdet
-            // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
+        // Mata in löner och spara dessa i en array av typen int - skriv ut meddelande och värdet
+        // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
+        static void ProcessSalaries(int row, int _salaryCount)
+        {
             int[] _salary = new int[_salaryCount];
- 
+            
+
             for (row = 0; row < _salaryCount; row++)
             {
-                Console.Write("Ange lön nummer {0}: ", row+1);
+                Console.Write("Ange lön nummer {0}: ", row + 1);
                 _salary[row] = int.Parse(Console.ReadLine());
             }
+
+            // Kopierade arrayen för att kunna lista den i ursprunglig ordning efter att den sorterats
+            int[] _target = new int[_salaryCount];
+            Array.Copy(_salary, _target, _salaryCount);
+            
 
             Console.WriteLine("\n-----------------------------------");
             MediumSalary(_salary, _salaryCount);
             AvarageSalary(_salary);
             SalaryDistribution(_salary);
             Console.WriteLine("-----------------------------------\n");
-            
-            for (row = 0; row < _salaryCount; row++ )
+
+
+            // Skapa en lista med max tre columner
+
+            foreach (int value in _target)
             {
-                Console.WriteLine(_salary[row]);
+                for (int col = 0; col < _salaryCount; col++)
+                {
+                    if (col % 3 == 0)
+                    {
+                        Console.WriteLine("");
+                    }
+                    Console.Write("{0,-6} ",value);
+                }      
             }
+
+          
+            
 
         }
 
@@ -51,6 +90,7 @@ namespace Lab1_3_SalaryReview
          */
         static void MediumSalary(int[] _salary, int _salaryCount)
         {
+            
             Array.Sort(_salary);
 
             if (_salaryCount % 2 == 0)
@@ -77,8 +117,8 @@ namespace Lab1_3_SalaryReview
             Console.WriteLine("Lönespridning: {0:c0}", _salary.Max() - _salary.Min());
         }
 
-        // Skapa en lista med max tre columner
-
+        
+        
 
         // Skapa en felhantering med try-catch-satser
 
