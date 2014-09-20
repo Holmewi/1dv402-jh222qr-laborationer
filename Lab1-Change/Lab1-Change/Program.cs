@@ -41,7 +41,9 @@ namespace Lab1_Change
             Console.WriteLine(String.Format("{0,-18} {1} {2,14:c0}", "Tillbaka", ":", _amountBack));
             Console.WriteLine("-----------------------------------\n");
 
-            SplitIntoDenomiations(_subtotal, _total, _amountBack);    
+            SplitIntoDenomiations(_subtotal, _total, _amountBack);
+
+            KeyInput(args);
         }
 
         // Input från användaren - belopp att betala
@@ -180,6 +182,26 @@ namespace Lab1_Change
             }
 
             Console.WriteLine("\n\n");
+        }
+
+        // Skapa hantering av key input där escape avslutar programmet medan andra tangenter startar om applikationen
+        static void KeyInput(string[] args)  // Källa http://www.codeproject.com/Questions/271195/Is-it-possible-to-refresh-the-console-application
+        {
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(" Tryck tangent för ny beräkning - Esc avslutar. ");
+            Console.ResetColor();
+
+
+            if (Console.ReadKey(true).Key != ConsoleKey.Escape)
+            {
+                Console.Clear();  // Källa: http://stackoverflow.com/questions/6238232/how-to-clear-the-entire-console-window
+                Main(args);
+            }
+            else
+            {
+                Environment.Exit(0);  // Källa: http://stackoverflow.com/questions/5682408/command-to-close-an-application-of-console
+            }
         }
     }
 }
