@@ -12,17 +12,26 @@ namespace Lab1_3_SalaryReview
         static void Main(string[] args)
         {
             // Deklarera variabler
+    
             int row = 0;
             string _prompt = "Ange antal löner att mata in: ";
             string _promtSalary = "Ange lön nummer {0}: ";
 
+            do
+            {
             int _salaryCount = ReadInt(_prompt);
+   
             Console.WriteLine("");
 
             ProcessSalaries(row, _salaryCount, _promtSalary);
 
+            } while (IsContinuing());
             KeyInput(args);
         }
+
+
+
+
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
         static int ReadInt(string _prompt) 
@@ -75,7 +84,7 @@ namespace Lab1_3_SalaryReview
                     Console.ResetColor();
                 }
 
-            } 
+            }
             
         }
 
@@ -128,9 +137,9 @@ namespace Lab1_3_SalaryReview
 
 
             Console.WriteLine("\n-----------------------------------");
-            MediumSalary(_salary, _salaryCount);
+            GetMedian(_salary, _salaryCount);
             AvarageSalary(_salary);
-            SalaryDistribution(_salary);
+            GetDispertion(_salary);
             Console.WriteLine("-----------------------------------");
 
 
@@ -154,7 +163,7 @@ namespace Lab1_3_SalaryReview
          * det första jag hittade en liknande lösning.
          * Källa: http://stackoverflow.com/questions/5275115/add-a-median-method-to-a-list
          */
-        static void MediumSalary(int[] _salary, int _salaryCount)
+        static void GetMedian(int[] _salary, int _salaryCount)
         {
             
             Array.Sort(_salary);
@@ -178,7 +187,7 @@ namespace Lab1_3_SalaryReview
         }
 
         // Räkna ut lönespridning - Subrahera den högsta lönen med den lägsta
-        static void SalaryDistribution(int[] _salary)
+        static void GetDispertion(int[] _salary)
         {
             Console.WriteLine("{0} {1,10:c0}", "Lönespridning:", _salary.Max() - _salary.Min());
         }
@@ -204,5 +213,21 @@ namespace Lab1_3_SalaryReview
             }
         }
 
+        public static bool IsContinuing()
+        {
+            
+            bool _isError = true;
+            if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+            {
+                _isError = false;
+            }
+            return _isError;   
+        }
+
+        /* Frågor:
+         * Hur kan medianlönen och medellönen vara olika när man enbart matar in två tal?
+         * Varför funkar inte metoden IsContinuing?
+         * Hur gör man för att slippa börja från start i arrayen efter att ett exception har kastats?
+         */
     }
 }
