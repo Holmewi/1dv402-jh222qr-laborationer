@@ -12,21 +12,24 @@ namespace Lab1_3_SalaryReview
         static void Main(string[] args)
         {
             // Deklarera variabler
-    
-            int row = 0;
+
+            int _salaryCount;
+            int[] _salary;
             string _prompt = "Ange antal löner att mata in: ";
-            string _promtSalary = "Ange lön nummer {0}: ";
+            string _promptSalary = "Ange lön nummer {0}: ";
 
             do
             {
-            int _salaryCount = ReadInt(_prompt);
-   
+                _salaryCount = ReadInt(_prompt);
+                _salary = ReadSalaries(_salaryCount, _promptSalary);
+                    
             Console.WriteLine("");
 
-            ProcessSalaries(row, _salaryCount, _promtSalary);
+            ProcessSalaries(_salary, _salaryCount);
+            KeyInput(args);
 
             } while (IsContinuing());
-            KeyInput(args);
+
         }
 
 
@@ -34,11 +37,8 @@ namespace Lab1_3_SalaryReview
 
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
-        static int ReadInt(string _prompt) 
+        private static int ReadInt(string _prompt) 
         {
-            while (true)
-            {
-
                 /* 
                  * Efter väldigt mycket läsande, fann jag en lösning till att få med sig värdet 
                  * som string till catch-satsen FormatException. Känns som att det borde finnas
@@ -47,89 +47,32 @@ namespace Lab1_3_SalaryReview
                  */ 
                 Console.Write(_prompt);
                 string line = Console.ReadLine();
-                int _salaryCount;
+                int _value;
 
-                try
-                {
-                    _salaryCount = Int32.Parse(line);
+                _value = Int32.Parse(line);
 
-                    if (_salaryCount < 2)
-                    {
-                        throw new Exception();
-                    }
-
-                    return _salaryCount;
-                }
-
-                catch (OverflowException)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Out.WriteLine("\n FEL! Du matade in ett för stort tal! \n"); 
-                    Console.ResetColor();
-                }
-
-                catch (System.FormatException)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Out.WriteLine("\n FEL! '{0}' kan inte tolkas som ett heltal! \n", line);
-                    Console.ResetColor();
-                }
-                catch (Exception)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n FEL! Du måste mata in minst två löner för att kunna göra en beräkning! \n");
-                    Console.ResetColor();
-                }
-
-            }
-            
+                return _value; 
         }
 
+        private static int[] ReadSalaries(int _salaryCount, string _promptSalary)
+        {
+            int[] _salary = new int[_salaryCount];
+            
+
+            for (int row = 0; row < _salaryCount; row++)
+                    {
+                        Console.Write(_promptSalary, row + 1);
+                        _salary[row] = int.Parse(Console.ReadLine());
+                    }
+                return _salary;
+
+        }
 
         // Mata in löner och spara dessa i en array av typen int - skriv uts meddelande och värdet
         // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
-        static void ProcessSalaries(int row, int _salaryCount, string _promtSalary)
+        private static void ProcessSalaries(int[] _salary, int _salaryCount)
         {
-            int[] _salary = new int[_salaryCount];
-
-            do
-            {
-                try  // Hur gör man för att slippa börja från start i arrayen efter att ett exception har kastats?
-                {
-                    for (row = 0; row < _salaryCount; row++)
-                    {
-                        Console.Write(_promtSalary, row + 1);
-                        _salary[row] = int.Parse(Console.ReadLine());
-                    }
-                    
-                }
-                catch (OverflowException)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Out.WriteLine("\n FEL! Du matade in ett för stort tal! \n");
-                    Console.ResetColor();
-                }
-
-                catch (System.FormatException)
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.Out.WriteLine("\n FEL! Fan inte tolkas som ett heltal! \n");
-                    Console.ResetColor();
-                }
-                catch
-                {
-                    Console.BackgroundColor = ConsoleColor.Red;
-                    Console.ForegroundColor = ConsoleColor.White;
-                    Console.WriteLine("\n FEL! Ett allvarligt fel inträffade! \n");
-                    Console.ResetColor();
-                }
-
-            } while (row < _salaryCount);
+            
 
             // Kopierade arrayen för att kunna lista den i ursprunglig ordning efter att den sorterats
             int[] _target = new int[_salaryCount];
