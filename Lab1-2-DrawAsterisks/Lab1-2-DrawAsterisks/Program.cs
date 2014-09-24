@@ -22,37 +22,31 @@ namespace DrawAsterisks
                 {  
                     Console.Write(" ");
                 }
-                for (int col = 0; col < 39; col++)
-                {
+                
                     // Skapa modulusoperatorn för att färglägga raderna med hjälp av en switch-sats
-                    switch (row % 3)
-                    {
-                        case 0:
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            break;
+                switch (row % 3)
+                {
+                    case 0:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        break;
 
-                        case 1:
-                            Console.ForegroundColor = ConsoleColor.Magenta;
-                            break;
+                    case 1:
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        break;
 
-                        case 2:
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            break;
-                    }
-
-                    Console.Write("* ");
-                    Console.ResetColor();
+                    case 2:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        break;
                 }
 
+                for (int col = 0; col < 39; col++)
+                {
+                    Console.Write("* ");
+                    
+                }
+                Console.ResetColor();
                 Console.WriteLine("");
             }
-
-            
-
-            
-
         }
-
-
     }
 }
