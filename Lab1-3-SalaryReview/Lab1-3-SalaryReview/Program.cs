@@ -11,27 +11,25 @@ namespace Lab1_3_SalaryReview
     {
         static void Main(string[] args)
         {
-            
-
             // Deklarera variabler
 
-            int _salaryCount;
+            int _salaryCount = 0;
             int[] _salary;
             string _prompt = "Ange antal löner att mata in: ";
             string _promptSalary = "Ange lön nummer {0}: ";
 
             do
             {
-                _salaryCount = ReadInt(_prompt);
+                _salaryCount = ReadInt(_prompt, _salaryCount);
+                Console.WriteLine("");
                 _salary = ReadSalaries(_salaryCount, _promptSalary);
-                    
-            Console.WriteLine("");
 
-            ProcessSalaries(_salary, _salaryCount);
+                Console.WriteLine("");
+                ViewResult(_salary, _salaryCount);
+
             KeyInput(args);
-
             } while (IsContinuing());
-
+            
         }
 
 
@@ -39,40 +37,86 @@ namespace Lab1_3_SalaryReview
 
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
-        private static int ReadInt(string _prompt) 
+        private static int ReadInt(string _prompt, int _salaryCount) 
         {
                 /* 
                  * Efter väldigt mycket läsande, fann jag en lösning till att få med sig värdet 
                  * som string till catch-satsen FormatException. Känns som att det borde finnas
                  * mer logiska sätt att lösa det på.
                  * Källa: http://stackoverflow.com/questions/12550184/throw-a-format-exception-c-sharp
-                 */ 
-                Console.Write(_prompt);
-                string line = Console.ReadLine();
-                int _value;
+                 */
+        while (true)
+        {
+            Console.Write(_prompt);
+            string line = Console.ReadLine();
+            try 
+            {
+                _salaryCount = Int32.Parse(line);
+                if (_salaryCount < 2)
+                {
+                    throw new Exception();
+                }
+                return _salaryCount;
+            }
 
-                _value = Int32.Parse(line);
-
-                return _value; 
+            catch (OverflowException)
+            {
+                ViewMessage(" FEL! Det angivna talet är för stort. ", true);
+            }
+            catch (FormatException)
+            {
+                ViewMessage(" FEL! '" + line + "' kan inte tolkas som ett heltal. ", true);
+            }
+            catch (Exception)
+            {
+                ViewMessage(" FEL! Det angivna talet får inte vara mindre än 2. ", true);
+            }         
         }
+            
+        }
+
+
 
         private static int[] ReadSalaries(int _salaryCount, string _promptSalary)
         {
             int[] _salary = new int[_salaryCount];
-            
 
-            for (int row = 0; row < _salaryCount; row++)
+            while (true)
+            {
+                
+                try
+                {
+                    for (int row = 0; row < _salaryCount; row++)
                     {
                         Console.Write(_promptSalary, row + 1);
                         _salary[row] = int.Parse(Console.ReadLine());
+                        if (_salary[row] < 1)
+                        {
+                            throw new Exception();
+                        }
                     }
-                return _salary;
+                    
+                    return _salary;
+                }
+                catch (OverflowException)
+                {
+                    ViewMessage(" FEL! Det angivna talet är för stort. ", true);
+                }
+                catch (FormatException)
+                {
+                    ViewMessage(" FEL! Kan inte tolkas som ett heltal. ", true);
+                }
+                catch (Exception)
+                {
+                    ViewMessage(" FEL! Det angivna talet får inte vara mindre än 1. ", true);
+                }
+            }
 
         }
 
         // Mata in löner och spara dessa i en array av typen int - skriv uts meddelande och värdet
         // Skapade en array för variablen _salary för att spara x antal löner som specifieras av _salaryCount
-        static void ProcessSalaries(int[] _salary, int _salaryCount)
+        static void ViewResult(int[] _salary, int _salaryCount)
         {
             MyExtensions myExtensions = new MyExtensions();
 
@@ -99,24 +143,14 @@ namespace Lab1_3_SalaryReview
                 System.Console.Write("{0,8}", _target[i]);
             }
             Console.WriteLine("\n\n");
-        }
+            }
 
-       
-
-        
-
-        
 
 
         // Skapa hantering av key input där escape avslutar programmet medan andra tangenter startar om applikationen
         static void KeyInput(string[] args)  // Källa http://www.codeproject.com/Questions/271195/Is-it-possible-to-refresh-the-console-application
         {
-            Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(" Tryck tangent för ny beräkning - Esc avslutar. ");
-            Console.ResetColor();
-
-
+            ViewMessage(" Tryck tangent för ny beräkning - Esc avslutar. ", false);
             if (Console.ReadKey(true).Key != ConsoleKey.Escape)
             {
                 Console.Clear();  // Källa: http://stackoverflow.com/questions/6238232/how-to-clear-the-entire-console-window
@@ -130,19 +164,40 @@ namespace Lab1_3_SalaryReview
 
         public static bool IsContinuing()
         {
-            
-            bool _isError = true;
-            if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+
+            if (Console.ReadKey(true).Key != ConsoleKey.Escape)
             {
-                _isError = false;
+                return true;
             }
-            return _isError;   
+            else
+            {
+                return false;
+            }       
+        }
+
+        static void ViewMessage(string prompt, bool isError/*ConsoleColor BackgroundColor, ConsoleColor ForegroundColor*/)
+        {
+            Console.WriteLine("");
+            if (isError)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.DarkGreen;
+            }
+            Console.WriteLine(prompt);
+            Console.ResetColor();
+            Console.WriteLine("");
         }
 
         /* Frågor:
          * Hur kan medianlönen och medellönen vara olika när man enbart matar in två tal?
          * Varför funkar inte metoden IsContinuing?
          * Hur gör man för att slippa börja från start i arrayen efter att ett exception har kastats?
+         * Hur skickar jag in ett värde som ligger i en Exception som ligger i en try-sats?
          */
     }
 }
