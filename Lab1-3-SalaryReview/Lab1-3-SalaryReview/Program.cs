@@ -20,14 +20,15 @@ namespace Lab1_3_SalaryReview
 
             do
             {
-                _salaryCount = ReadInt(_prompt, _salaryCount);
+                Console.Clear();
+                _salaryCount = ReadInt(_prompt);
                 Console.WriteLine("");
                 _salary = ReadSalaries(_salaryCount, _promptSalary);
 
                 Console.WriteLine("");
                 ViewResult(_salary, _salaryCount);
 
-            KeyInput(args);
+           // KeyInput(args);
             } while (IsContinuing());
             
         }
@@ -37,7 +38,7 @@ namespace Lab1_3_SalaryReview
 
 
         // Mata in antal löner som ska redovisas - skriv ut meddelande och värdet
-        private static int ReadInt(string _prompt, int _salaryCount) 
+        private static int ReadInt(string _prompt) 
         {
                 /* 
                  * Efter väldigt mycket läsande, fann jag en lösning till att få med sig värdet 
@@ -47,6 +48,7 @@ namespace Lab1_3_SalaryReview
                  */
         while (true)
         {
+            int _salaryCount;
             Console.Write(_prompt);
             string line = Console.ReadLine();
             try 
@@ -80,7 +82,7 @@ namespace Lab1_3_SalaryReview
         private static int[] ReadSalaries(int _salaryCount, string _promptSalary)
         {
             int[] _salary = new int[_salaryCount];
-
+            string line = "";
             while (true)
             {
                 
@@ -89,7 +91,8 @@ namespace Lab1_3_SalaryReview
                     for (int row = 0; row < _salaryCount; row++)
                     {
                         Console.Write(_promptSalary, row + 1);
-                        _salary[row] = int.Parse(Console.ReadLine());
+                        line = Console.ReadLine();
+                        _salary[row] = int.Parse(line);
                         if (_salary[row] < 1)
                         {
                             throw new Exception();
@@ -104,7 +107,7 @@ namespace Lab1_3_SalaryReview
                 }
                 catch (FormatException)
                 {
-                    ViewMessage(" FEL! Kan inte tolkas som ett heltal. ", true);
+                    ViewMessage(String.Format(" FEL! Kan inte {0} tolkas som ett heltal. ", line), true);
                 }
                 catch (Exception)
                 {
@@ -164,7 +167,7 @@ namespace Lab1_3_SalaryReview
 
         public static bool IsContinuing()
         {
-
+            ViewMessage(" Tryck tangent för ny beräkning - Esc avslutar. ", false);
             if (Console.ReadKey(true).Key != ConsoleKey.Escape)
             {
                 return true;
