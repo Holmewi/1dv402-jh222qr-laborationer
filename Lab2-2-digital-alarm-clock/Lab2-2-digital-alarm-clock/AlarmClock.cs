@@ -97,18 +97,21 @@ namespace Lab2_2_digital_alarm_clock
                 Hour = 0;
             }
 
-            // Alarm i ringing when true
+            // Alarm i ringing when true (hopefully)
             if (Hour == AlarmHour && Minute == AlarmMinute)
             {
                 return true;
             }
-            return false;
-            
+            return false;     
         }
 
+        // The method overrides the 
         public string ToString()
         {
-
+            // Returning a string to the run method
+            // Tried to make the minutes show correctly. Time will tell...
+            // Source: http://www.csharp-examples.net/string-format-datetime/
+            return String.Format("{0}:{1:mm} <{2}:{3:mm}>", Hour, Minute, AlarmHour, AlarmMinute); 
         }
     }
 }
