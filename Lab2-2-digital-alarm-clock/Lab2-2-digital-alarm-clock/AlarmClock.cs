@@ -62,11 +62,13 @@ namespace Lab2_2_digital_alarm_clock
         }
 
         public AlarmClock()
+            :this(0, 0)
         {
 
         }
 
         public AlarmClock(int hour, int minute)
+            :this(hour, minute, 0, 0)
         {
   
         }
@@ -81,7 +83,27 @@ namespace Lab2_2_digital_alarm_clock
 
         public bool TickTock()
         {
+            // Clock is ticking
+            Minute++;
 
+            if(Minute > 59)
+            {
+                Minute = 0;
+                Hour++;
+            }
+
+            if(Hour > 23)
+            {
+                Hour = 0;
+            }
+
+            // Alarm i ringing when true
+            if (Hour == AlarmHour && Minute == AlarmMinute)
+            {
+                return true;
+            }
+            return false;
+            
         }
 
         public string ToString()
