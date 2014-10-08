@@ -1,1 +1,6 @@
 C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-2-digital-alarm-clock\Lab2-2-digital-alarm-clock\bin\Debug\Lab2-2-digital-alarm-clock.exe.config
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-2-digital-alarm-clock\Lab2-2-digital-alarm-clock\bin\Debug\Lab2-2-digital-alarm-clock.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-2-digital-alarm-clock\Lab2-2-digital-alarm-clock\bin\Debug\Lab2-2-digital-alarm-clock.pdb
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-2-digital-alarm-clock\Lab2-2-digital-alarm-clock\obj\Debug\Lab2-2-digital-alarm-clock.csprojResolveAssemblyReference.cache
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-2-digital-alarm-clock\Lab2-2-digital-alarm-clock\obj\Debug\Lab2-2-digital-alarm-clock.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-2-digital-alarm-clock\Lab2-2-digital-alarm-clock\obj\Debug\Lab2-2-digital-alarm-clock.pdb

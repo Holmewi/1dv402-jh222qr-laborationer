@@ -105,13 +105,14 @@ namespace Lab2_2_digital_alarm_clock
             return false;     
         }
 
-        // The method overrides the 
-        public string ToString()
+        // The method overrides the ToString in the base class
+        public override string ToString()
         {
             // Returning a string to the run method
             // Tried to make the minutes show correctly. Time will tell...
+            // Well, they didn't so I changed the format to show correctly with 00.
             // Source: http://www.csharp-examples.net/string-format-datetime/
-            return String.Format("{0}:{1:mm} <{2}:{3:mm}>", Hour, Minute, AlarmHour, AlarmMinute); 
+            return String.Format("{0:}:{1:00} <{2:}:{3:00}>", Hour, Minute, AlarmHour, AlarmMinute); 
         }
     }
 }

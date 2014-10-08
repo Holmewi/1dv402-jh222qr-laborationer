@@ -10,7 +10,31 @@ namespace Lab2_2_digital_alarm_clock
     {
         static void Main(string[] args)
         {
-            AlarmClock e = new AlarmClock();
+           //AlarmClock ac = new AlarmClock();
+
+            // Test 1 - Standardkonstruktor
+           
+            Console.WriteLine("{0}\nTest 1 \nTest av standardkonstrukorn.", HorizontalLine);
+            AlarmClock testClock1 = new AlarmClock();
+            Console.WriteLine(testClock1.ToString());
+            
+        }
+
+        private static string HorizontalLine = "=============================================";
+
+        private static void Run(AlarmClock ac, int minutes)
+        {
+
+        }
+
+        private static void ViewErrorMessage(string message)
+        {
+
+        }
+
+        private static void ViewTestHeader(string header)
+        {
+
         }
     }
 }
