@@ -10,6 +10,7 @@ namespace Lab2_2_digital_alarm_clock
     {
         static void Main(string[] args)
         {
+            AlarmClock e = new AlarmClock();
         }
     }
 }

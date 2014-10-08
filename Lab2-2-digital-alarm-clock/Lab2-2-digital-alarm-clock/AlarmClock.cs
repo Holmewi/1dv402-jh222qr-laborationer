@@ -73,7 +73,10 @@ namespace Lab2_2_digital_alarm_clock
 
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
-
+            Hour = _hour;
+            Minute = _minute;
+            AlarmHour = _alarmHour;
+            AlarmMinute = _alarmMinute;
         }
 
         public bool TickTock()
