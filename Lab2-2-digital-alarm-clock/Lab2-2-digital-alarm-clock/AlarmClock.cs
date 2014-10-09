@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2_2_digital_alarm_clock
 {
-    class AlarmClock
+    public class AlarmClock // Åh... public så klart!!
     {
         private int _alarmHour;
         private int _alarmMinute;
@@ -17,11 +17,12 @@ namespace Lab2_2_digital_alarm_clock
         {
             get { return _alarmHour; }
             set 
-            { 
-                if(_alarmHour < 0 && _alarmHour > 23)
+            {
+                if (value < 0 || value > 23)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Alarmtimmen är inte inom intervallet 0-23.");
                 }
+                _alarmHour = value;
             }
         }
 
@@ -30,10 +31,11 @@ namespace Lab2_2_digital_alarm_clock
             get { return _alarmMinute; }
             set 
             {
-                if (_alarmMinute < 0 && _alarmMinute > 59)
+                if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Alarmminuten är inte inom intervallet 0-59.");
                 }
+                _alarmMinute = value;
             }
         }
 
@@ -42,10 +44,11 @@ namespace Lab2_2_digital_alarm_clock
             get { return _hour; }
             set 
             {
-                if (_hour < 0 && _hour > 23)
+                if (value < 0 || value > 23)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Timmen är inte inom intervallet 0-23.");
                 }
+                _hour = value;
             }
         }
 
@@ -54,10 +57,11 @@ namespace Lab2_2_digital_alarm_clock
             get { return _minute; }
             set 
             {
-                if (_minute < 0 && _minute > 59)
+                if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException();
+                    throw new ArgumentException("Minuten är inte inom intervallet 0-59.");
                 }
+                _minute = value;
             }
         }
 
@@ -73,12 +77,14 @@ namespace Lab2_2_digital_alarm_clock
   
         }
 
+        // I finally found the evil little error to get the tests to work properly. 
+        // I accidentally gave the fields the new values instead of giving the value to the new variables.
         public AlarmClock(int hour, int minute, int alarmHour, int alarmMinute)
         {
-            Hour = _hour;
-            Minute = _minute;
-            AlarmHour = _alarmHour;
-            AlarmMinute = _alarmMinute;
+            Hour = hour;
+            Minute = minute;
+            AlarmHour = alarmHour;
+            AlarmMinute = alarmMinute;
         }
 
         public bool TickTock()
@@ -90,19 +96,24 @@ namespace Lab2_2_digital_alarm_clock
             {
                 Minute = 0;
                 Hour++;
+                if (Hour > 23)
+                {
+                    Hour = 0;
+                }
             }
 
-            if(Hour > 23)
-            {
-                Hour = 0;
-            }
+            
 
-            // Alarm i ringing when true (hopefully)
+            // Alarm i ringing when true in the method run in the base class (hopefully)
             if (Hour == AlarmHour && Minute == AlarmMinute)
             {
                 return true;
             }
-            return false;     
+            else
+            {
+                return false;  
+            }
+               
         }
 
         // The method overrides the ToString in the base class
