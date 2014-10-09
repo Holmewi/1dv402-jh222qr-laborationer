@@ -11,17 +11,24 @@ namespace Lab2_2_digital_alarm_clock
         static void Main(string[] args)
         {
             // Test 1 - Standardkonstruktor
-            AlarmClock testClock1 = new AlarmClock();
+            AlarmClock testClock = new AlarmClock();
             ViewTestHeader("Test 1 \nTest av standardkonstrukorn.");
-            Console.WriteLine(testClock1.ToString());
+            Console.WriteLine(testClock.ToString());
 
-            // Test 2 - Standardkonstruktor
-            AlarmClock testClock2 = new AlarmClock(9, 42);
+            // Test 2 - Konstruktorn med två parametrar
+            testClock = new AlarmClock(9, 42);
             ViewTestHeader("Test 2 \nTest av konstruktorn med två parametrar.");
-            Console.WriteLine(testClock2.ToString());
+            Console.WriteLine(testClock.ToString());
 
+            // Test 3 - Konstruktorn med fyra parametrar
+            testClock = new AlarmClock(13, 24, 7, 35);
+            ViewTestHeader("Test 3 \nTest av konstruktorn med fyra parametrar.");
+            Console.WriteLine(testClock.ToString());
 
-            
+            // Test 4 - Metoden TickTock som ska låta klockan gå en minut
+            testClock = new AlarmClock(23, 58, 7, 35);
+            ViewTestHeader("Test 4 \nTest av metoden TickTock() som ska låta klockan gå en minut.");
+            Run(testClock, 13);
         }
 
         private static string HorizontalLine = "=============================================";

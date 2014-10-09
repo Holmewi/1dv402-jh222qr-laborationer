@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2_2_digital_alarm_clock
 {
-    public class AlarmClock // Åh... public så klart!!
+    public class AlarmClock // Public så klart!!
     {
         private int _alarmHour;
         private int _alarmMinute;
@@ -90,22 +90,21 @@ namespace Lab2_2_digital_alarm_clock
         public bool TickTock()
         {
             // Clock is ticking
-            Minute++;
+            _minute++;
 
-            if(Minute > 59)
+            if (_minute > 59)
             {
-                Minute = 0;
-                Hour++;
-                if (Hour > 23)
-                {
-                    Hour = 0;
-                }
+                _minute = 0;
+                _hour++; 
             }
-
+            if (_hour > 23)
+            {
+                _hour = 0;
+            }
             
 
             // Alarm i ringing when true in the method run in the base class (hopefully)
-            if (Hour == AlarmHour && Minute == AlarmMinute)
+            if (_hour == _alarmHour && _minute == _alarmMinute)
             {
                 return true;
             }
