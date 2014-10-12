@@ -16,7 +16,7 @@ namespace Lab2_2_digital_alarm_clock
         public int AlarmHour
         {
             get { return _alarmHour; }
-            set 
+            set
             {
                 if (value < 0 || value > 23)
                 {
@@ -29,7 +29,7 @@ namespace Lab2_2_digital_alarm_clock
         public int AlarmMinute
         {
             get { return _alarmMinute; }
-            set 
+            set
             {
                 if (value < 0 || value > 59)
                 {
@@ -42,7 +42,7 @@ namespace Lab2_2_digital_alarm_clock
         public int Hour
         {
             get { return _hour; }
-            set 
+            set
             {
                 if (value < 0 || value > 23)
                 {
@@ -55,7 +55,7 @@ namespace Lab2_2_digital_alarm_clock
         public int Minute
         {
             get { return _minute; }
-            set 
+            set
             {
                 if (value < 0 || value > 59)
                 {
@@ -66,15 +66,15 @@ namespace Lab2_2_digital_alarm_clock
         }
 
         public AlarmClock()
-            :this(0, 0)
+            : this(0, 0)
         {
 
         }
 
         public AlarmClock(int hour, int minute)
-            :this(hour, minute, 0, 0)
+            : this(hour, minute, 0, 0)
         {
-  
+
         }
 
         // I finally found the evil little error to get the tests to work properly. 
@@ -90,29 +90,39 @@ namespace Lab2_2_digital_alarm_clock
         public bool TickTock()
         {
             // Clock is ticking
-            _minute++;
+            if (Minute < 59)
+            {
+                Minute++;
+            }
 
-            if (_minute > 59)
+            else
             {
-                _minute = 0;
-                _hour++; 
+                Minute = 0;
+
+                if (Hour < 23)
+                {
+                    Hour++;
+                }
+
+                else
+                {
+                    Hour = 0;
+                }
             }
-            if (_hour > 23)
-            {
-                _hour = 0;
-            }
-            
+
+
 
             // Alarm i ringing when true in the method run in the base class (hopefully)
-            if (_hour == _alarmHour && _minute == _alarmMinute)
+            return Hour == AlarmHour && Minute == AlarmMinute;
+            /*
             {
                 return true;
             }
             else
             {
                 return false;  
-            }
-               
+            }*/
+
         }
 
         // The method overrides the ToString in the base class
@@ -122,7 +132,7 @@ namespace Lab2_2_digital_alarm_clock
             // Tried to make the minutes show correctly. Time will tell...
             // Well, they didn't so I changed the format to show correctly with 00.
             // Source: http://www.csharp-examples.net/string-format-datetime/
-            return String.Format("{0:}:{1:00} <{2:}:{3:00}>", Hour, Minute, AlarmHour, AlarmMinute); 
+            return String.Format("{0:}:{1:00} <{2:}:{3:00}>", Hour, Minute, AlarmHour, AlarmMinute);
         }
     }
 }
