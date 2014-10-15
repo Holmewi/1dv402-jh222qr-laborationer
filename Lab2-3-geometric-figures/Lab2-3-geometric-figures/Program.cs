@@ -12,14 +12,14 @@ namespace Lab2_3_geometric_figures
         {
             
 
-            // Metoden CreateShape anropas vid annat val än avsluta och returnerar en referens till Ellips eller Rectangle
-            // Referensen används sedan vid anrop av ViewShapeDetail som presenterar figurens detaljer
+            // "Metoden CreateShape anropas vid annat val än avsluta och returnerar en referens till Ellips eller Rectangle"
+            // "Referensen används sedan vid anrop av ViewShapeDetail som presenterar figurens detaljer"
             do
             {
-                // Visa menyn på nytt när beräkningen är gjord
+                // "Visa menyn på nytt när beräkningen är gjord"
                 Console.Clear();
 
-                // Ska anropa metoden ViewMenu för att visa en meny.
+                // "Ska anropa metoden ViewMenu för att visa en meny"
                 ViewMenu(); 
 
                 // Making sure that the inputValue return to an int value
@@ -53,25 +53,34 @@ namespace Lab2_3_geometric_figures
                 Console.ResetColor();
 
             } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-            
-            
-            
+                 
         }
 
         private static Shape CreateShape(ShapeType shapeType)
         {
-            // Läsa in figurens längd och bredd
-            // Skapa objektet och returnera en referens till det
-            // Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips ska skapas
-            throw new Exception("TEST TEST");
+            // "Läsa in figurens längd och bredd"
+            // "Skapa objektet och returnera en referens till det"
+            // "Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips ska skapas"
+            switch (shapeType)
+            {
+                case ShapeType.Rectangle:
+                    Console.WriteLine("Rectangle");
+                    break;
+
+                case ShapeType.Ellipse:
+                    Console.WriteLine("Ellipse");
+                    break;
+            }
+
+            throw new Exception();
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
         {
-            // Ska returnera ett värde av typen double som är större än 0
-            // Ge möjligheten att skicka ett argument av typen string
-            // Argumentet ska vara information som visas i anslutning till där inmatningen sker
-            // Om det inmatade värdet inte kan tolkas korekt ska användaren få en ny chans och ett felmeddelande ska visas
+            // "Ska returnera ett värde av typen double som är större än 0"
+            // "Ge möjligheten att skicka ett argument av typen string"
+            // "Argumentet ska vara information som visas i anslutning till där inmatningen sker"
+            // "Om det inmatade värdet inte kan tolkas korekt ska användaren få en ny chans och ett felmeddelande ska visas"
 
             throw new Exception();
 
@@ -79,26 +88,26 @@ namespace Lab2_3_geometric_figures
 
         private static void ViewMenu()
         {
-            // Presentera en meny med tre val, Avsluta, Ellips och Rektangel
+            // "Presentera en meny med tre val, Avsluta, Ellips och Rektangel"
             Console.BackgroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("-                                         -");
-            Console.WriteLine("-           Geometriska figurer           -");
-            Console.WriteLine("-                                         -");
-            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("===========================================");
+            Console.WriteLine("=                                         =");
+            Console.WriteLine("=           Geometriska figurer           =");
+            Console.WriteLine("=                                         =");
+            Console.WriteLine("===========================================");
             Console.ResetColor();
 
             Console.WriteLine("\n0. Avsluta\n\n1. Ellips\n\n2. Rektangel\n");
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("\nAnge menyval [0-2]: ");
+            Console.Write("\nAnge menyval [0-2]: ");
         }
 
         private static void ViewShapeDetail(Shape shape)
         {
-            // Presentera en figurs detaljer
-            // Vid anrop av metoden skickas ett argument med som refererar till figuren, vars detaljer presenteras
-            // Parametern "shape" av typen "Shape" refererar till figuren
-            // Nyttja att basklassen Shape överskuggar metoden ToString när figurens längd, bredd, omkrets och area presenteras
+            // "Presentera en figurs detaljer"
+            // "Vid anrop av metoden skickas ett argument med som refererar till figuren, vars detaljer presenteras"
+            // "Parametern "shape" av typen "Shape" refererar till figuren"
+            // "Nyttja att basklassen Shape överskuggar metoden ToString när figurens längd, bredd, omkrets och area presenteras"
         }
     }
 }
