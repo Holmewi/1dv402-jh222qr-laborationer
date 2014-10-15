@@ -10,13 +10,18 @@ namespace Lab2_3_geometric_figures
     {
         private static void Main(string[] args)
         {
-            // Ska anropa metoden ViewMenu för att visa en meny.
-            ViewMenu(); 
+            
 
             // Metoden CreateShape anropas vid annat val än avsluta och returnerar en referens till Ellips eller Rectangle
             // Referensen används sedan vid anrop av ViewShapeDetail som presenterar figurens detaljer
             do
             {
+                // Visa menyn på nytt när beräkningen är gjord
+                Console.Clear();
+
+                // Ska anropa metoden ViewMenu för att visa en meny.
+                ViewMenu(); 
+
                 // Making sure that the inputValue return to an int value
                 int menuValue;
                 string inputValue = Console.ReadLine();
@@ -33,11 +38,23 @@ namespace Lab2_3_geometric_figures
                     case 2:
                         ViewShapeDetail(CreateShape(ShapeType.Rectangle));
                         break;
+
+                    default:
+                        Console.BackgroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine("\n FEL! Ange ett nummer mellan 0 och 2. \n");
+                        Console.ResetColor();
+                        break;
                 }
 
-            } while (true);
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine(" Tryck tangent för att fortsätta ");
+                Console.ResetColor();
+
+            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
             
-            // Visa menyn på nytt när beräkningen är gjord
+            
             
         }
 
