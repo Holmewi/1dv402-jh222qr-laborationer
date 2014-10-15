@@ -15,7 +15,7 @@ namespace Lab2_3_geometric_figures
         // Properties
         public double Width
         {
-            get { return _width ; }     // Temporary return values
+            get { return _width ; }
 
             set 
             {
@@ -29,7 +29,7 @@ namespace Lab2_3_geometric_figures
 
         public double Length
         {
-            get { return _length; }     // Temporary return values
+            get { return _length; }
 
             set 
             {

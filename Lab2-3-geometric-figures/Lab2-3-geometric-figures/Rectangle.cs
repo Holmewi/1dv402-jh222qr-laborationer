@@ -11,12 +11,12 @@ namespace Lab2_3_geometric_figures
         // Implemented properties that overrides the value in the base class Shape
         public override double Area
         {
-            get { return 1.5; }     // Temporary return values
+            get { return Length * Width; }
         }
 
         public override double Perimeter
         {
-            get { return 1.5; }    // Temporary return values
+            get { return 2 * Length + 2 * Width; }
         }
 
         // Constructor that gets the values from the base class Shape
