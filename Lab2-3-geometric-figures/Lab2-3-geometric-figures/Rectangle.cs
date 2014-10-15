@@ -8,6 +8,21 @@ namespace Lab2_3_geometric_figures
 {
     public class Rectangle : Shape
     {
+        // Implemented properties that overrides the value in the base class Shape
+        public override double Area
+        {
+            get { return 1.5; }     // Temporary return values
+        }
 
+        public override double Perimeter
+        {
+            get { return 1.5; }    // Temporary return values
+        }
+
+        // Constructor that gets the values from the base class Shape
+        public Rectangle (double lenght, double width) : base(lenght, width)
+        {
+            
+        }
     }
 }

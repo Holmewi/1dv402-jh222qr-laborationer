@@ -8,11 +8,12 @@ namespace Lab2_3_geometric_figures
 {
     public class Ellipse : Shape
     {
-        // Implemented properties
+        // Implemented properties that overrides the value in the base class Shape
         public override double Area
         {
             get { return 1.5; }     // Temporary return values
         }
+
         public override double Perimeter
         {
             get { return 1.5; }    // Temporary return values
