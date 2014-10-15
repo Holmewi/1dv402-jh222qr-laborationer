@@ -15,16 +15,30 @@ namespace Lab2_3_geometric_figures
         // Properties
         public double Width
         {
-            get { return 2.5; }     // Temporary return values
+            get { return _width ; }     // Temporary return values
 
-            set { }
+            set 
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException();
+                }
+                _width = value; 
+            }
         }
 
         public double Length
         {
-            get { return 2.5; }     // Temporary return values
+            get { return _length; }     // Temporary return values
 
-            set { }
+            set 
+            {
+                if (value < 0)
+                {
+                    throw new ArgumentException();
+                }
+                _length = value;               
+            }
         }
 
         public abstract double Perimeter
