@@ -13,9 +13,11 @@ namespace Lab2_3_geometric_figures
         private double _width;
 
         // Properties
-        public abstract double Area
+        public double Width
         {
-            get { return 1.5; }     // Temporary return values
+            get { return 2.5; }     // Temporary return values
+
+            set { }
         }
 
         public double Length
@@ -27,15 +29,13 @@ namespace Lab2_3_geometric_figures
 
         public abstract double Perimeter
         {
-            get { return 1.5; }    // Temporary return values
+            get; // Tar värdet från Ellipse och Rectangle
         }
 
-        public double Width
+        public abstract double Area
         {
-            get { return 2.5; }     // Temporary return values
-
-            set { }
-        }
+            get; // Tar värdet från Ellipse och Rectangle
+        }  
 
         // Constructor
         protected Shape (double lenght, double width)
@@ -46,7 +46,7 @@ namespace Lab2_3_geometric_figures
         // Method
         public string ToString()
         {
-            return "Temp";          // Temporary return values
+            return "Temp";      
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab2_3_geometric_figures
 {
-    class Rectangle : Shape
+    public class Rectangle : Shape
     {
 
     }
