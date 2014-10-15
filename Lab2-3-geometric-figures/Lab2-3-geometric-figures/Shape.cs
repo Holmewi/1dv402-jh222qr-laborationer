@@ -61,7 +61,7 @@ namespace Lab2_3_geometric_figures
         // Method that override the same method in the base class Object
         public override string ToString()
         {
-            return "Temp";      // Temporary string value
+            return "Längd\t:\t" + Length + "\nBredd\t:\t" + Width + "\nOmkrets\t:\t" + Perimeter + "\nArea\t:\t" + Area;
         }
     }
 }

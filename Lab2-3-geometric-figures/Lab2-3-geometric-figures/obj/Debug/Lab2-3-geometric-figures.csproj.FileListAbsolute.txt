@@ -1,1 +1,6 @@
 C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-3-geometric-figures\Lab2-3-geometric-figures\bin\Debug\Lab2-3-geometric-figures.exe.config
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-3-geometric-figures\Lab2-3-geometric-figures\bin\Debug\Lab2-3-geometric-figures.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-3-geometric-figures\Lab2-3-geometric-figures\bin\Debug\Lab2-3-geometric-figures.pdb
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-3-geometric-figures\Lab2-3-geometric-figures\obj\Debug\Lab2-3-geometric-figures.csprojResolveAssemblyReference.cache
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-3-geometric-figures\Lab2-3-geometric-figures\obj\Debug\Lab2-3-geometric-figures.exe
+C:\Users\Holmewi\Documents\ud14\1iv402\my-application\laborationer\1dv402-jh222qr-laborationer\Lab2-3-geometric-figures\Lab2-3-geometric-figures\obj\Debug\Lab2-3-geometric-figures.pdb

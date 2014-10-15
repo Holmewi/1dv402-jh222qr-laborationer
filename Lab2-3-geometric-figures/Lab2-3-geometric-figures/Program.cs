@@ -10,6 +10,8 @@ namespace Lab2_3_geometric_figures
     {
         static void Main(string[] args)
         {
+            double temp = 2.5;
+            Console.WriteLine("Längd\t:\t" + temp + "\nBredd\t:\t" + temp + "\nOmkrets\t:\t" + temp + "\nArea\t:\t" + temp);
 
         }
     }
