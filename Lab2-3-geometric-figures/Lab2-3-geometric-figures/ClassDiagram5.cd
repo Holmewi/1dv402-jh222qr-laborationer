@@ -7,10 +7,10 @@
       <FileName>Ellipse.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Lab2_3_geometric_figures.Program" Collapsed="true">
-    <Position X="5.25" Y="0.5" Width="1.5" />
+  <Class Name="Lab2_3_geometric_figures.Program">
+    <Position X="5.25" Y="0.75" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <HashCode>AAAGAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAQBAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Enum Name="Lab2_3_geometric_figures.ShapeType">
-    <Position X="5.25" Y="1.75" Width="1.5" />
+    <Position X="5.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShapeType.cs</FileName>

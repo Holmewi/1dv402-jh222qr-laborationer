@@ -14,15 +14,16 @@ namespace Lab2_3_geometric_figures
             // Metoden CreateShape anropas vid annat val än avsluta och returnerar en referens till Ellips eller Rectangle
             // Referensen används sedan vid anrop av ViewDetail som presenterar figurens detaljer
             // Visa menyn på nytt när beräkningen är gjord
-
+            ViewMenu(); 
         }
 
         private static Shape CreateShape(ShapeType shapeType)
         {
             // Läsa in figurens längd och bredd
-            
             // Skapa objektet och returnera en referens till det
             // Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips ska skapas
+
+            throw new Exception();
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
@@ -32,11 +33,23 @@ namespace Lab2_3_geometric_figures
             // Argumentet ska vara information som visas i anslutning till där inmatningen sker
             // Om det inmatade värdet inte kan tolkas korekt ska användaren få en ny chans och ett felmeddelande ska visas
 
+            throw new Exception();
+
         }
 
         private static void ViewMenu()
         {
             // Presentera en meny med tre val, Avsluta, Ellips och Rektangel
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("-                                         -");
+            Console.WriteLine("-           Geometriska figurer           -");
+            Console.WriteLine("-                                         -");
+            Console.WriteLine("-------------------------------------------");
+            Console.ResetColor();
+
+            Console.WriteLine("\n0. Avsluta\n\n1. Ellips\n\n2. Rektangel\n");
+            Console.WriteLine("-------------------------------------------");
         }
 
         private static void ViewShapeDetail(Shape shape)
