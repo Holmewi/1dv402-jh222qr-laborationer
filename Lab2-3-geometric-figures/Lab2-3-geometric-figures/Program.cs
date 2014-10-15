@@ -8,10 +8,31 @@ namespace Lab2_3_geometric_figures
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            double temp = 2.5;
-            Console.WriteLine("Längd\t:\t" + temp + "\nBredd\t:\t" + temp + "\nOmkrets\t:\t" + temp + "\nArea\t:\t" + temp);
+            
+
+        }
+
+        private Shape CreateShape(ShapeType shapeType)
+        {
+            // Läsa in figurens längd och bredd
+            // Skapa objektet och returnera en referens till det
+            // Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips ska skapas
+        }
+
+        private double ReadDoubleGreaterThanZero(string prompt)
+        {
+
+        }
+
+        private void ViewMenu()
+        {
+
+        }
+
+        private void ViewShapeDetail(Shape shape)
+        {
 
         }
     }
