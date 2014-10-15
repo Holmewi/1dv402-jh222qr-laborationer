@@ -11,10 +11,34 @@ namespace Lab2_3_geometric_figures
         private static void Main(string[] args)
         {
             // Ska anropa metoden ViewMenu för att visa en meny.
-            // Metoden CreateShape anropas vid annat val än avsluta och returnerar en referens till Ellips eller Rectangle
-            // Referensen används sedan vid anrop av ViewDetail som presenterar figurens detaljer
-            // Visa menyn på nytt när beräkningen är gjord
             ViewMenu(); 
+
+            // Metoden CreateShape anropas vid annat val än avsluta och returnerar en referens till Ellips eller Rectangle
+            // Referensen används sedan vid anrop av ViewShapeDetail som presenterar figurens detaljer
+            do
+            {
+                // Making sure that the inputValue return to an int value
+                int menuValue;
+                string inputValue = Console.ReadLine();
+                menuValue = int.Parse(inputValue);
+
+                switch (menuValue)
+                {
+                    case 0: return;
+
+                    case 1:
+                        ViewShapeDetail(CreateShape(ShapeType.Ellipse));
+                        break;
+
+                    case 2:
+                        ViewShapeDetail(CreateShape(ShapeType.Rectangle));
+                        break;
+                }
+
+            } while (true);
+            
+            // Visa menyn på nytt när beräkningen är gjord
+            
         }
 
         private static Shape CreateShape(ShapeType shapeType)
@@ -22,8 +46,7 @@ namespace Lab2_3_geometric_figures
             // Läsa in figurens längd och bredd
             // Skapa objektet och returnera en referens till det
             // Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips ska skapas
-
-            throw new Exception();
+            throw new Exception("TEST TEST");
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
@@ -50,6 +73,7 @@ namespace Lab2_3_geometric_figures
 
             Console.WriteLine("\n0. Avsluta\n\n1. Ellips\n\n2. Rektangel\n");
             Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("\nAnge menyval [0-2]: ");
         }
 
         private static void ViewShapeDetail(Shape shape)
