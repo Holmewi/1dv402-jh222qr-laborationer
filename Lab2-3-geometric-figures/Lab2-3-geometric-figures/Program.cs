@@ -98,6 +98,7 @@ namespace Lab2_3_geometric_figures
             double width = ReadDoubleGreaterThanZero("Ange bredden: "); ;   // Temporary value
 
             // "Skapa objektet och returnera en referens till det"
+            /* Den gamla
             if (shapeType == ShapeType.Rectangle)
             {
                 Rectangle rectangle = new Rectangle(lenght, width);
@@ -108,7 +109,23 @@ namespace Lab2_3_geometric_figures
             {
                 Ellipse ellipse = new Ellipse(lenght, width);
                 return ellipse;
-            }        
+            }      
+             */
+
+            Shape s;
+          
+            if (shapeType == ShapeType.Rectangle)
+            {
+                s = new Rectangle(lenght, width);
+                
+            }
+            
+            else
+            {
+                s = new Ellipse(lenght, width);
+               
+            }
+            return s;
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
