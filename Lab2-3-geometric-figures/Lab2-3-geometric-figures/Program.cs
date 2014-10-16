@@ -67,7 +67,7 @@ namespace Lab2_3_geometric_figures
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("===========================================");
                     Console.WriteLine("=                Rectangle                =");
-                    Console.WriteLine("===========================================");
+                    Console.WriteLine("===========================================\n");
                     Console.ResetColor();
                     break;
 
@@ -75,7 +75,7 @@ namespace Lab2_3_geometric_figures
                     Console.BackgroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("===========================================");
                     Console.WriteLine("=                 Ellipse                 =");
-                    Console.WriteLine("===========================================");
+                    Console.WriteLine("===========================================\n");
                     Console.ResetColor();
                     break;
             }
@@ -83,8 +83,8 @@ namespace Lab2_3_geometric_figures
             // "Läsa in figurens längd och bredd"
             // A string argument and the value is sent from the method ReadDoubleGreaterThanZero
 
-            double lenght = ReadDoubleGreaterThanZero("Test test");  // Temporary value
-            double width = ReadDoubleGreaterThanZero("Test test"); ;   // Temporary value
+            double lenght = ReadDoubleGreaterThanZero("Ange längden: ");  // Temporary value
+            double width = ReadDoubleGreaterThanZero("Ange bredden: "); ;   // Temporary value
 
             // "Skapa objektet och returnera en referens till det"
             if (shapeType == ShapeType.Rectangle)
@@ -111,11 +111,12 @@ namespace Lab2_3_geometric_figures
 
             do
             {
-                Console.WriteLine(prompt);
+                Console.Write(prompt);
+                promptInput = double.Parse(Console.ReadLine());
 
                 if (promptInput > 0)
                 {
-                    return 4;
+                    return promptInput;
                 }
                 
             } while (true);
