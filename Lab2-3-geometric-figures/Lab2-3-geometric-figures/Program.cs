@@ -58,21 +58,45 @@ namespace Lab2_3_geometric_figures
 
         private static Shape CreateShape(ShapeType shapeType)
         {
-            // "Läsa in figurens längd och bredd"
-            // "Skapa objektet och returnera en referens till det"
-            // "Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips ska skapas"
+            Console.Clear();
+
+            // "Metoden ska ha parametrar av type ShapeType vars värde bestämmer om en ellips eller en rektangel ska skapas"
             switch (shapeType)
             {
                 case ShapeType.Rectangle:
-                    Console.WriteLine("Rectangle");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("===========================================");
+                    Console.WriteLine("=                Rectangle                =");
+                    Console.WriteLine("===========================================");
+                    Console.ResetColor();
                     break;
 
                 case ShapeType.Ellipse:
-                    Console.WriteLine("Ellipse");
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("===========================================");
+                    Console.WriteLine("=                 Ellipse                 =");
+                    Console.WriteLine("===========================================");
+                    Console.ResetColor();
                     break;
             }
 
-            throw new Exception();
+            // "Läsa in figurens längd och bredd"
+
+            double lenght = 1;  // Temporary value
+            double width = 2;   // Temporary value
+
+            // "Skapa objektet och returnera en referens till det"
+            if (shapeType == ShapeType.Rectangle)
+            {
+                Rectangle rectangle = new Rectangle(lenght, width);
+                return rectangle;
+            }
+            
+            else
+            {
+                Ellipse ellipse = new Ellipse(lenght, width);
+                return ellipse;
+            }        
         }
 
         private static double ReadDoubleGreaterThanZero(string prompt)
