@@ -25,26 +25,37 @@ namespace Lab2_3_geometric_figures
                 // Making sure that the inputValue return to an int value
                 int menuValue;
                 string inputValue = Console.ReadLine();
-                menuValue = int.Parse(inputValue);
 
-                switch (menuValue)
+                try
                 {
-                    case 0: return;
+                    menuValue = int.Parse(inputValue);
 
-                    case 1:
-                        ViewShapeDetail(CreateShape(ShapeType.Ellipse));
-                        break;
+                    switch (menuValue)
+                    {
+                        case 0: return;
 
-                    case 2:
-                        ViewShapeDetail(CreateShape(ShapeType.Rectangle));
-                        break;
+                        case 1:
+                            ViewShapeDetail(CreateShape(ShapeType.Ellipse));
+                            break;
 
-                    default:
-                        Console.BackgroundColor = ConsoleColor.Red;
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.WriteLine("\n FEL! Ange ett nummer mellan 0 och 2. \n");
-                        Console.ResetColor();
-                        break;
+                        case 2:
+                            ViewShapeDetail(CreateShape(ShapeType.Rectangle));
+                            break;
+
+                        default:
+                            Console.BackgroundColor = ConsoleColor.Red;
+                            Console.ForegroundColor = ConsoleColor.White;
+                            Console.WriteLine("\n FEL! Ange ett nummer mellan 0 och 2. \n");
+                            Console.ResetColor();
+                            break;
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("\n FEL! Ange enbart heltal mellan 0 och 2. \n");
+                    Console.ResetColor();
                 }
 
                 Console.BackgroundColor = ConsoleColor.Blue;
@@ -111,12 +122,26 @@ namespace Lab2_3_geometric_figures
 
             do
             {
-                Console.Write(prompt);
-                promptInput = double.Parse(Console.ReadLine());
-
-                if (promptInput > 0)
+                try
                 {
-                    return promptInput;
+                    Console.Write(prompt);
+                    promptInput = double.Parse(Console.ReadLine());
+
+                    if (promptInput > 0)
+                    {
+                        return promptInput;
+                    }
+                    else
+                    {
+                        throw new FormatException();
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("\n FEL! Ange ett flyttal större än 0. \n");
+                    Console.ResetColor();
                 }
                 
             } while (true);
