@@ -81,9 +81,10 @@ namespace Lab2_3_geometric_figures
             }
 
             // "Läsa in figurens längd och bredd"
+            // A string argument and the value is sent from the method ReadDoubleGreaterThanZero
 
-            double lenght = 1;  // Temporary value
-            double width = 2;   // Temporary value
+            double lenght = ReadDoubleGreaterThanZero("Test test");  // Temporary value
+            double width = ReadDoubleGreaterThanZero("Test test"); ;   // Temporary value
 
             // "Skapa objektet och returnera en referens till det"
             if (shapeType == ShapeType.Rectangle)
@@ -104,9 +105,23 @@ namespace Lab2_3_geometric_figures
             // "Ska returnera ett värde av typen double som är större än 0"
             // "Ge möjligheten att skicka ett argument av typen string"
             // "Argumentet ska vara information som visas i anslutning till där inmatningen sker"
-            // "Om det inmatade värdet inte kan tolkas korekt ska användaren få en ny chans och ett felmeddelande ska visas"
+            // "Om det inmatade värdet inte kan tolkas korrekt ska användaren få en ny chans och ett felmeddelande ska visas"
+            
+            double promptInput = 1;
 
-            throw new Exception();
+            do
+            {
+                Console.WriteLine(prompt);
+
+                if (promptInput > 0)
+                {
+                    return 4;
+                }
+                
+            } while (true);
+
+
+            
 
         }
 
