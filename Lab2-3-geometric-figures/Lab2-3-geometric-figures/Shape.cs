@@ -52,10 +52,10 @@ namespace Lab2_3_geometric_figures
         }  
 
         // Constructor responsible that the fields, through the properties, gets the value to it's parameters
-        protected Shape (double lenght, double width)
+        protected Shape (double length, double width)
         {
-            _length = Length;
-            _width = Width;
+            Length = length;
+            Width = width;
         }
 
         // Method that override the same method in the base class Object
