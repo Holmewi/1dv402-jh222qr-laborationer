@@ -61,7 +61,7 @@ namespace Lab2_3_geometric_figures
         // Method that override the same method in the base class Object
         public override string ToString()
         {
-            return "Längd\t:\t" + Length + "\nBredd\t:\t" + Width + "\nOmkrets\t:\t" + Perimeter + "\nArea\t:\t" + Area;
+            return string.Format("\nLängd\t:\t {0:f} \nBredd\t:\t {1:f} \nOmkrets\t:\t {2:f} \nArea\t:\t {3:f} \n", Length, Width, Perimeter, Area);
         }
     }
 }

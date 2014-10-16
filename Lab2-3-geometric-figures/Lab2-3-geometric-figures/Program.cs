@@ -170,9 +170,18 @@ namespace Lab2_3_geometric_figures
         private static void ViewShapeDetail(Shape shape)
         {
             // "Presentera en figurs detaljer"
+            Console.BackgroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("\n===========================================");
+            Console.WriteLine("=                Detaljer                 =");
+            Console.WriteLine("===========================================");
+            Console.ResetColor();
+
             // "Vid anrop av metoden skickas ett argument med som refererar till figuren, vars detaljer presenteras"
             // "Parametern "shape" av typen "Shape" refererar till figuren"
             // "Nyttja att basklassen Shape överskuggar metoden ToString när figurens längd, bredd, omkrets och area presenteras"
+            Console.WriteLine(shape.ToString());
+            Console.WriteLine("-------------------------------------------\n");
+
         }
     }
 }
